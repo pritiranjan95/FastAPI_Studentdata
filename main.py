@@ -1,15 +1,10 @@
 from fastapi import FastAPI
 from bson.json_util import dumps
-from models.students import Student
+from models.students import Student   #importing the model here
 from service.operations import create_student, delete_data,show_student, update_student
 from utils.mongo import collection
 
 app=FastAPI()
-
-# class Student(BaseModel):
-#     name:str  | None=None
-#     age:int | None=None
-#     section:str | None=None
 
 # @app.post("/create")
 # def data_in(student:Student):
@@ -44,6 +39,8 @@ def search(name:str):
 #     # print()
 #     collection.update_one({"name":name},{"$set":a}  )
 #     return "Updated Successfully"
+
+#Editing the existing data
 
 @app.put("/{name}")
 def change_student(name:str, student:Student):
